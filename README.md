@@ -18,7 +18,7 @@ Most fraud detection systems score accounts **independently** — "is this one a
 
 **Thesis:** modeling accounts as a graph (nodes = accounts, edges = shared infrastructure) and combining graph-structural features with behavioral features catches rings that a behavioral-only classifier misses.
 
-**We don't just claim this — we prove it with an ablation study**, and we go further than a per-account score: we roll flagged accounts up into **ring-level reports with evidence**, because the actual USP is coordinated-abuse detection, not just individual scoring. See [Results](#results).
+**We don't just claim this — we test it with an ablation study**, and we go further than a per-account score: we roll flagged accounts up into **ring-level reports with evidence**, because the actual USP is coordinated-abuse detection, not just individual scoring. See [Results](#results).
 
 ---
 
