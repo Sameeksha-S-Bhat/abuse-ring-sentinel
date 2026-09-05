@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abuse-Ring Sentinel — Analyst Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0E14;
+    --panel: #12161F;
+    --panel-2: #161B26;
+    --border: #232935;
+    --border-soft: #1A1F2B;
+    --text: #E4E7EC;
+    --text-dim: #8B93A3;
+    --text-faint: #545D6E;
+    --risk-high: #C4453D;
+    --risk-high-bg: rgba(196, 69, 61, 0.08);
+    --risk-med: #C98A3D;
+    --risk-med-bg: rgba(201, 138, 61, 0.08);
+    --risk-low: #3D9E86;
+    --risk-low-bg: rgba(61, 158, 134, 0.08);
+    --accent: #5B8DEF;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .brand-mark {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .brand-sub {
+    font-size: 13px;
+    color: var(--text-faint);
+  }
+
+  .status-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 12.5px;
+    color: var(--text-dim);
+  }
+
+  .status-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-faint);
+    margin-right: 6px;
+  }
+  .status-dot.live { background: var(--risk-low); box-shadow: 0 0 6px var(--risk-low); }
+  .status-dot.down { background: var(--risk-high); box-shadow: 0 0 6px var(--risk-high); }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px;
+  }
+
+  .control-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .control-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  button {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 9px 16px;
+    border: 1px solid var(--border);
+    background: var(--panel-2);
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  button:hover { border-color: #3A4256; background: #1C2230; }
+  button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  button.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #0A0E14;
+    font-weight: 600;
+  }
+  button.primary:hover { background: #6D9BF2; }
+
+  .spacer { flex: 1; }
+
+  textarea {
+    width: 100%;
+    background: #0D1119;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    padding: 14px;
+    margin-top: 14px;
+    min-height: 160px;
+    resize: vertical;
+    display: none;
+  }
+  textarea.open { display: block; }
+
+  .hint {
+    font-size: 12px;
+    color: var(--text-faint);
+    margin-top: 10px;
+  }
+
+  .error-box {
+    display: none;
+    background: var(--risk-high-bg);
+    border: 1px solid var(--risk-high);
+    color: #E8A19C;
+    padding: 12px 16px;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .error-box.show { display: block; }
+
+  .results { display: none; }
+  .results.show {
+    display: block;
+    animation: reveal 0.35s ease;
+  }
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .stat {
+    padding: 18px 20px;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 26px;
+    font-weight: 500;
+  }
+  .stat-value.alert { color: var(--risk-high); }
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  .section-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .count {
+    color: var(--text-faint);
+    font-weight: 400;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+  }
+
+  .ring-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .ring-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--risk-high);
+    padding: 16px 18px;
+  }
+  .ring-card.medium { border-left-color: var(--risk-med); }
+
+  .ring-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .ring-id {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+
+  .ring-risk {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--risk-high);
+  }
+  .ring-card.medium .ring-risk { color: var(--risk-med); }
+
+  .ring-meta {
+    font-size: 12.5px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+
+  .evidence-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  .evidence-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    background: var(--panel-2);
+    border: 1px solid var(--border-soft);
+    padding: 3px 8px;
+  }
+
+  .member-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+  .member-chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-faint);
+    padding: 2px 7px;
+    border: 1px solid var(--border-soft);
+  }
+
+  .recommendation {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px 10px;
+    background: var(--risk-high-bg);
+    color: #E8A19C;
+    border: 1px solid rgba(196, 69, 61, 0.3);
+  }
+  .ring-card.medium .recommendation {
+    background: var(--risk-med-bg);
+    color: #E8C093;
+    border-color: rgba(201, 138, 61, 0.3);
+  }
+
+  .empty-rings {
+    border: 1px solid var(--border);
+    padding: 32px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 13.5px;
+    margin-bottom: 32px;
+  }
+
+  details {
+    border: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  summary {
+    padding: 14px 18px;
+    cursor: pointer;
+    font-size: 13.5px;
+    font-weight: 500;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: "▸";
+    color: var(--text-faint);
+    font-size: 11px;
+    transition: transform 0.15s ease;
+  }
+  details[open] summary::before { transform: rotate(90deg); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  th {
+    text-align: left;
+    padding: 8px 18px;
+    color: var(--text-faint);
+    font-weight: 500;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    font-size: 11.5px;
+  }
+  td {
+    padding: 8px 18px;
+    border-bottom: 1px solid var(--border-soft);
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text-dim);
+  }
+  tr.flagged td:first-child { color: var(--risk-high); }
+  tr:last-child td { border-bottom: none; }
+
+  .loading {
+    display: none;
+    color: var(--text-dim);
+    font-size: 13px;
+    padding: 20px 0;
+  }
+  .loading.show { display: block; }
+
+  footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px 40px;
+    color: var(--text-faint);
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="brand-mark">Abuse-Ring Sentinel</span>
+    <span class="brand-sub mono">analyst console</span>
+  </div>
+  <div class="status-row">
+    <span><span class="status-dot" id="statusDot"></span><span id="statusText">checking API…</span></span>
+    <span class="mono" id="thresholdText">threshold —</span>
+  </div>
+</header>
+
+<main>
+  <div class="control-panel">
+    <div class="control-row">
+      <button class="primary" id="runDemoBtn">Load demo batch &amp; run</button>
+      <button id="toggleEditorBtn">Paste raw JSON instead</button>
+      <div class="spacer"></div>
+      <button id="runCustomBtn" style="display:none;">Run analysis</button>
+    </div>
+    <textarea id="jsonInput" class="mono" placeholder="Paste an array of raw account objects here…"></textarea>
+    <div class="hint">Submit at least 5 accounts — the graph needs enough accounts to reveal shared infrastructure. The demo batch includes one obvious 5-account ring plus 20 normal accounts.</div>
+  </div>
+
+  <div class="error-box" id="errorBox"></div>
+  <div class="loading" id="loadingBox">Running analysis — building graph, scoring accounts, detecting rings…</div>
+
+  <div class="results" id="results">
+    <div class="stats-strip">
+      <div class="stat">
+        <div class="stat-value mono" id="statAccounts">—</div>
+        <div class="stat-label">accounts analyzed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value mono alert" id="statRings">—</div>
+        <div class="stat-label">candidate rings detected</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value mono" id="statFlagged">—</div>
+        <div class="stat-label">individual accounts flagged</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value mono" id="statPeak">—</div>
+        <div class="stat-label">peak ring risk score</div>
+      </div>
+    </div>
+
+    <div class="section-title">Candidate rings <span class="count" id="ringCount"></span></div>
+    <div class="ring-grid" id="ringGrid"></div>
+    <div class="empty-rings" id="emptyRings" style="display:none;">No coordinated clusters cleared the reporting threshold in this batch.</div>
+
+    <details>
+      <summary>Individual account assessments (<span id="tableCount">0</span>)</summary>
+      <table>
+        <thead>
+          <tr><th>account</th><th>risk score</th><th>flagged</th><th>top factor</th></tr>
+        </thead>
+        <tbody id="accountTable"></tbody>
+      </table>
+    </details>
+  </div>
+</main>
+
+<footer>
+  Detection only — no autonomous action is taken on this data. Every flag is a recommendation for human review.
+</footer>
+
+<script>
+const API_BASE = "http://127.0.0.1:8000";
+
+const statusDot = document.getElementById("statusDot");
+const statusText = document.getElementById("statusText");
+const thresholdText = document.getElementById("thresholdText");
+const errorBox = document.getElementById("errorBox");
+const loadingBox = document.getElementById("loadingBox");
+const results = document.getElementById("results");
+const jsonInput = document.getElementById("jsonInput");
+const runDemoBtn = document.getElementById("runDemoBtn");
+const runCustomBtn = document.getElementById("runCustomBtn");
+const toggleEditorBtn = document.getElementById("toggleEditorBtn");
+
+function buildDemoBatch() {
+  // Fixed, deterministic values (not random) so this demo produces the exact
+  // same result every time -- important for a reproducible, repeatable pitch
+  // demo recording. Values were chosen and verified against the trained
+  // model to sit with a comfortable safety margin on both sides: ring
+  // accounts score ~0.99 (well above any reasonable threshold), normal
+  // accounts score <0.01 (well below), so the result is stable even if the
+  // model or threshold changes slightly between environments.
+  const ringBehavior = [
+    { age: 4, vel: 8.0, amt: 1880, std: 40 },
+    { age: 5, vel: 8.3, amt: 1900, std: 42 },
+    { age: 6, vel: 7.9, amt: 1860, std: 39 },
+    { age: 7, vel: 8.5, amt: 1920, std: 44 },
+    { age: 8, vel: 8.1, amt: 1890, std: 41 }
+  ];
+  const ring = ringBehavior.map((b, idx) => ({
+    account_id: `RING_${idx + 1}`,
+    device_id: "dev_shared_XYZ",
+    ip_subnet: `ip_r${idx + 1}`,
+    payment_instrument: "pay_shared_ABC",
+    shipping_address_hash: `addr_r${idx + 1}`,
+    account_age_days: b.age,
+    txn_velocity_per_day: b.vel,
+    avg_txn_amount: b.amt,
+    amount_std: b.std
+  }));
+
+  const normalBehavior = [
+    [620, 0.6, 1050, 410], [480, 0.8, 1180, 380], [700, 0.5, 950, 450],
+    [390, 0.9, 1220, 340], [550, 0.7, 1100, 400], [650, 0.6, 1000, 430],
+    [420, 0.85, 1250, 320], [580, 0.75, 1150, 390], [500, 0.65, 1080, 360],
+    [600, 0.55, 1020, 420], [450, 0.95, 1200, 300], [520, 0.7, 1120, 370],
+    [680, 0.5, 970, 440], [410, 0.9, 1230, 310], [560, 0.6, 1090, 400],
+    [490, 0.8, 1170, 350], [630, 0.65, 1030, 410], [400, 0.85, 1240, 330],
+    [540, 0.75, 1110, 380], [610, 0.55, 1040, 420]
+  ];
+  const normal = normalBehavior.map(([age, vel, amt, std], idx) => ({
+    account_id: `NORMAL_${idx + 1}`,
+    device_id: `dev_n${idx + 1}`,
+    ip_subnet: `ip_n${idx + 1}`,
+    payment_instrument: `pay_n${idx + 1}`,
+    shipping_address_hash: `addr_n${idx + 1}`,
+    account_age_days: age,
+    txn_velocity_per_day: vel,
+    avg_txn_amount: amt,
+    amount_std: std
+  }));
+
+  return [...ring, ...normal];
+}
+
+async function checkHealth() {
+  try {
+    const res = await fetch(`${API_BASE}/`);
+    const data = await res.json();
+    statusDot.classList.add("live");
+    statusText.textContent = "API connected";
+    thresholdText.textContent = `threshold ${data.current_threshold}`;
+  } catch (e) {
+    statusDot.classList.add("down");
+    statusText.textContent = "API unreachable — is uvicorn running on :8000?";
+  }
+}
+checkHealth();
+
+toggleEditorBtn.addEventListener("click", () => {
+  const open = jsonInput.classList.toggle("open");
+  runCustomBtn.style.display = open ? "inline-block" : "none";
+  toggleEditorBtn.textContent = open ? "Hide editor" : "Paste raw JSON instead";
+  if (open && !jsonInput.value) {
+    jsonInput.value = JSON.stringify(buildDemoBatch(), null, 2);
+  }
+});
+
+runDemoBtn.addEventListener("click", () => runAnalysis(buildDemoBatch()));
+runCustomBtn.addEventListener("click", () => {
+  try {
+    const parsed = JSON.parse(jsonInput.value);
+    runAnalysis(parsed);
+  } catch (e) {
+    showError("That doesn't look like valid JSON. Check for a missing comma or bracket.");
+  }
+});
+
+function showError(msg) {
+  errorBox.textContent = msg;
+  errorBox.classList.add("show");
+}
+function hideError() {
+  errorBox.classList.remove("show");
+}
+
+async function runAnalysis(accounts) {
+  hideError();
+  results.classList.remove("show");
+  loadingBox.classList.add("show");
+  runDemoBtn.disabled = true;
+  runCustomBtn.disabled = true;
+
+  try {
+    const res = await fetch(`${API_BASE}/analyze-network`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(accounts)
+    });
+    if (!res.ok) {
+      const errData = await res.json().catch(() => ({}));
+      throw new Error(errData.detail || `Request failed with status ${res.status}`);
+    }
+    const data = await res.json();
+    renderResults(data);
+  } catch (e) {
+    showError(e.message || "Could not reach the API. Confirm uvicorn is running on port 8000.");
+  } finally {
+    loadingBox.classList.remove("show");
+    runDemoBtn.disabled = false;
+    runCustomBtn.disabled = false;
+  }
+}
+
+function renderResults(data) {
+  document.getElementById("statAccounts").textContent = data.accounts_analyzed;
+  document.getElementById("statRings").textContent = data.candidate_rings_detected;
+  const flaggedCount = data.individual_assessments.filter(a => a.flagged).length;
+  document.getElementById("statFlagged").textContent = flaggedCount;
+  const peak = data.ring_reports.length
+    ? Math.max(...data.ring_reports.map(r => r.avg_member_risk_score)).toFixed(3)
+    : "—";
+  document.getElementById("statPeak").textContent = peak;
+
+  const grid = document.getElementById("ringGrid");
+  const emptyState = document.getElementById("emptyRings");
+  grid.innerHTML = "";
+  document.getElementById("ringCount").textContent = `(${data.ring_reports.length})`;
+
+  if (data.ring_reports.length === 0) {
+    emptyState.style.display = "block";
+  } else {
+    emptyState.style.display = "none";
+    data.ring_reports.forEach(ring => {
+      const isMedium = ring.avg_member_risk_score <= 0.6;
+      const card = document.createElement("div");
+      card.className = "ring-card" + (isMedium ? " medium" : "");
+
+      const evidenceTags = Object.entries(ring.shared_attribute_evidence)
+        .map(([k, v]) => `<span class="evidence-tag">${k} × ${v}</span>`).join("");
+
+      const memberChips = ring.member_accounts
+        .map(m => `<span class="member-chip">${m}</span>`).join("");
+
+      card.innerHTML = `
+        <div class="ring-card-top">
+          <span class="ring-id">${ring.candidate_ring_id}</span>
+          <span class="ring-risk">${ring.avg_member_risk_score.toFixed(3)}</span>
+        </div>
+        <div class="ring-meta">${ring.member_count} members · density ${ring.internal_edge_density.toFixed(2)}</div>
+        <div class="evidence-row">${evidenceTags}</div>
+        <div class="member-row">${memberChips}</div>
+        <div class="recommendation">${ring.recommendation}</div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  const tbody = document.getElementById("accountTable");
+  tbody.innerHTML = "";
+  document.getElementById("tableCount").textContent = data.individual_assessments.length;
+  data.individual_assessments
+    .slice()
+    .sort((a, b) => b.risk_score - a.risk_score)
+    .forEach(a => {
+      const tr = document.createElement("tr");
+      if (a.flagged) tr.className = "flagged";
+      const topFactor = a.top_contributing_factors[0];
+      tr.innerHTML = `
+        <td>${a.account_id}</td>
+        <td>${a.risk_score.toFixed(4)}</td>
+        <td>${a.flagged ? "yes" : "no"}</td>
+        <td>${topFactor ? topFactor.feature : "—"}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+  results.classList.add("show");
+}
+</script>
+
+</body>
+</html>

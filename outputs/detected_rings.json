@@ -1,0 +1,964 @@
+[
+  {
+    "candidate_ring_id": "RING_006",
+    "member_count": 7,
+    "member_accounts": [
+      "ACC_00021",
+      "ACC_00022",
+      "ACC_00023",
+      "ACC_00024",
+      "ACC_00025",
+      "ACC_00026",
+      "ACC_00060"
+    ],
+    "avg_member_risk_score": 0.9997,
+    "max_member_risk_score": 1.0,
+    "min_member_risk_score": 0.9991,
+    "member_scores": {
+      "ACC_00026": 0.9991,
+      "ACC_00025": 1.0,
+      "ACC_00022": 0.9997,
+      "ACC_00021": 0.9996,
+      "ACC_00024": 0.9998,
+      "ACC_00023": 0.9998,
+      "ACC_00060": 0.9999
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "payment_instrument": 21,
+      "device_id": 1
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 7,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_013",
+    "member_count": 5,
+    "member_accounts": [
+      "ACC_00084",
+      "ACC_00085",
+      "ACC_00086",
+      "ACC_00087",
+      "ACC_00088"
+    ],
+    "avg_member_risk_score": 0.9983,
+    "max_member_risk_score": 0.9995,
+    "min_member_risk_score": 0.9969,
+    "member_scores": {
+      "ACC_00088": 0.9995,
+      "ACC_00084": 0.997,
+      "ACC_00086": 0.9989,
+      "ACC_00087": 0.9969,
+      "ACC_00085": 0.9991
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "shipping_address_hash": 10
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 5,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_011",
+    "member_count": 5,
+    "member_accounts": [
+      "ACC_00060",
+      "ACC_00061",
+      "ACC_00062",
+      "ACC_00063",
+      "ACC_00064"
+    ],
+    "avg_member_risk_score": 0.9975,
+    "max_member_risk_score": 0.9999,
+    "min_member_risk_score": 0.9934,
+    "member_scores": {
+      "ACC_00062": 0.996,
+      "ACC_00063": 0.9934,
+      "ACC_00061": 0.9989,
+      "ACC_00064": 0.999,
+      "ACC_00060": 0.9999
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "ip_subnet": 10
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 5,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_014",
+    "member_count": 5,
+    "member_accounts": [
+      "ACC_00048",
+      "ACC_00049",
+      "ACC_00050",
+      "ACC_00051",
+      "ACC_00052"
+    ],
+    "avg_member_risk_score": 0.9972,
+    "max_member_risk_score": 0.9999,
+    "min_member_risk_score": 0.9892,
+    "member_scores": {
+      "ACC_00050": 0.9999,
+      "ACC_00052": 0.9995,
+      "ACC_00051": 0.9979,
+      "ACC_00048": 0.9992,
+      "ACC_00049": 0.9892
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "device_id": 10,
+      "shipping_address_hash": 10
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 5,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_004",
+    "member_count": 8,
+    "member_accounts": [
+      "ACC_00040",
+      "ACC_00041",
+      "ACC_00042",
+      "ACC_00043",
+      "ACC_00044",
+      "ACC_00045",
+      "ACC_00046",
+      "ACC_00047"
+    ],
+    "avg_member_risk_score": 0.9954,
+    "max_member_risk_score": 0.9999,
+    "min_member_risk_score": 0.9689,
+    "member_scores": {
+      "ACC_00043": 0.9999,
+      "ACC_00041": 0.9999,
+      "ACC_00040": 0.9689,
+      "ACC_00042": 0.9995,
+      "ACC_00047": 0.9991,
+      "ACC_00046": 0.9981,
+      "ACC_00044": 0.999,
+      "ACC_00045": 0.9986
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "shipping_address_hash": 28
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 8,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_007",
+    "member_count": 7,
+    "member_accounts": [
+      "ACC_00089",
+      "ACC_00090",
+      "ACC_00091",
+      "ACC_00092",
+      "ACC_00093",
+      "ACC_00094",
+      "ACC_00095"
+    ],
+    "avg_member_risk_score": 0.9948,
+    "max_member_risk_score": 1.0,
+    "min_member_risk_score": 0.9809,
+    "member_scores": {
+      "ACC_00091": 0.9998,
+      "ACC_00092": 1.0,
+      "ACC_00094": 0.9999,
+      "ACC_00093": 0.9999,
+      "ACC_00095": 1.0,
+      "ACC_00090": 0.9809,
+      "ACC_00089": 0.983
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "device_id": 21,
+      "payment_instrument": 21
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 7,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_003",
+    "member_count": 8,
+    "member_accounts": [
+      "ACC_00142",
+      "ACC_00143",
+      "ACC_00144",
+      "ACC_00145",
+      "ACC_00146",
+      "ACC_00147",
+      "ACC_00148",
+      "ACC_00149"
+    ],
+    "avg_member_risk_score": 0.9922,
+    "max_member_risk_score": 1.0,
+    "min_member_risk_score": 0.9423,
+    "member_scores": {
+      "ACC_00145": 0.9986,
+      "ACC_00144": 0.9998,
+      "ACC_00148": 0.9999,
+      "ACC_00147": 1.0,
+      "ACC_00142": 0.9996,
+      "ACC_00143": 0.9979,
+      "ACC_00146": 0.9423,
+      "ACC_00149": 0.9999
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "ip_subnet": 28
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 8,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_010",
+    "member_count": 6,
+    "member_accounts": [
+      "ACC_00096",
+      "ACC_00097",
+      "ACC_00099",
+      "ACC_00100",
+      "ACC_00101",
+      "ACC_00102"
+    ],
+    "avg_member_risk_score": 0.9747,
+    "max_member_risk_score": 0.9988,
+    "min_member_risk_score": 0.8754,
+    "member_scores": {
+      "ACC_00100": 0.9988,
+      "ACC_00096": 0.9962,
+      "ACC_00102": 0.8754,
+      "ACC_00101": 0.9944,
+      "ACC_00099": 0.9955,
+      "ACC_00097": 0.9879
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "shipping_address_hash": 15
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 6,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_005",
+    "member_count": 8,
+    "member_accounts": [
+      "ACC_00065",
+      "ACC_00067",
+      "ACC_00068",
+      "ACC_00069",
+      "ACC_00070",
+      "ACC_00071",
+      "ACC_00072",
+      "ACC_02793"
+    ],
+    "avg_member_risk_score": 0.9106,
+    "max_member_risk_score": 1.0,
+    "min_member_risk_score": 0.3031,
+    "member_scores": {
+      "ACC_00070": 0.9983,
+      "ACC_00069": 0.9853,
+      "ACC_00065": 1.0,
+      "ACC_00068": 0.9997,
+      "ACC_00071": 0.9997,
+      "ACC_02793": 0.3031,
+      "ACC_00067": 0.999,
+      "ACC_00072": 0.9999
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "shipping_address_hash": 28
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 7,
+    "_eval_only_precision_of_this_cluster": 0.875
+  },
+  {
+    "candidate_ring_id": "RING_001",
+    "member_count": 9,
+    "member_accounts": [
+      "ACC_00130",
+      "ACC_00131",
+      "ACC_00132",
+      "ACC_00133",
+      "ACC_00134",
+      "ACC_00135",
+      "ACC_00136",
+      "ACC_00137",
+      "ACC_00863"
+    ],
+    "avg_member_risk_score": 0.9083,
+    "max_member_risk_score": 0.9999,
+    "min_member_risk_score": 0.1883,
+    "member_scores": {
+      "ACC_00136": 0.9962,
+      "ACC_00133": 0.9995,
+      "ACC_00134": 0.9999,
+      "ACC_00863": 0.1883,
+      "ACC_00137": 0.999,
+      "ACC_00130": 0.9992,
+      "ACC_00132": 0.9996,
+      "ACC_00131": 0.9937,
+      "ACC_00135": 0.9996
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "ip_subnet": 36,
+      "shipping_address_hash": 28
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 8,
+    "_eval_only_precision_of_this_cluster": 0.889
+  },
+  {
+    "candidate_ring_id": "RING_016",
+    "member_count": 4,
+    "member_accounts": [
+      "ACC_00008",
+      "ACC_00011",
+      "ACC_00012",
+      "ACC_00013"
+    ],
+    "avg_member_risk_score": 0.8824,
+    "max_member_risk_score": 0.9971,
+    "min_member_risk_score": 0.5687,
+    "member_scores": {
+      "ACC_00011": 0.5687,
+      "ACC_00008": 0.9821,
+      "ACC_00012": 0.9971,
+      "ACC_00013": 0.9818
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "payment_instrument": 6,
+      "shipping_address_hash": 6
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 4,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_028",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00016",
+      "ACC_00017",
+      "ACC_00018"
+    ],
+    "avg_member_risk_score": 0.8756,
+    "max_member_risk_score": 0.9811,
+    "min_member_risk_score": 0.6709,
+    "member_scores": {
+      "ACC_00016": 0.6709,
+      "ACC_00018": 0.9748,
+      "ACC_00017": 0.9811
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "payment_instrument": 3
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 3,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_002",
+    "member_count": 8,
+    "member_accounts": [
+      "ACC_00073",
+      "ACC_00074",
+      "ACC_00075",
+      "ACC_00076",
+      "ACC_00077",
+      "ACC_00079",
+      "ACC_00080",
+      "ACC_02727"
+    ],
+    "avg_member_risk_score": 0.8742,
+    "max_member_risk_score": 0.9998,
+    "min_member_risk_score": 0.0058,
+    "member_scores": {
+      "ACC_00079": 0.9996,
+      "ACC_00076": 0.9982,
+      "ACC_00080": 0.9988,
+      "ACC_00077": 0.9989,
+      "ACC_00074": 0.9998,
+      "ACC_00073": 0.9932,
+      "ACC_02727": 0.0058,
+      "ACC_00075": 0.9996
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "payment_instrument": 28
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 7,
+    "_eval_only_precision_of_this_cluster": 0.875
+  },
+  {
+    "candidate_ring_id": "RING_015",
+    "member_count": 5,
+    "member_accounts": [
+      "ACC_00123",
+      "ACC_00126",
+      "ACC_00127",
+      "ACC_00128",
+      "ACC_00129"
+    ],
+    "avg_member_risk_score": 0.8558,
+    "max_member_risk_score": 0.9855,
+    "min_member_risk_score": 0.5298,
+    "member_scores": {
+      "ACC_00128": 0.9352,
+      "ACC_00129": 0.9855,
+      "ACC_00127": 0.8527,
+      "ACC_00123": 0.5298,
+      "ACC_00126": 0.9755
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "payment_instrument": 10
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 5,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_012",
+    "member_count": 5,
+    "member_accounts": [
+      "ACC_00053",
+      "ACC_00054",
+      "ACC_00055",
+      "ACC_00056",
+      "ACC_03952"
+    ],
+    "avg_member_risk_score": 0.8481,
+    "max_member_risk_score": 0.9999,
+    "min_member_risk_score": 0.2449,
+    "member_scores": {
+      "ACC_00053": 0.9987,
+      "ACC_00054": 0.9999,
+      "ACC_00055": 0.9992,
+      "ACC_00056": 0.9981,
+      "ACC_03952": 0.2449
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "device_id": 10
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 4,
+    "_eval_only_precision_of_this_cluster": 0.8
+  },
+  {
+    "candidate_ring_id": "RING_008",
+    "member_count": 6,
+    "member_accounts": [
+      "ACC_00109",
+      "ACC_00110",
+      "ACC_00111",
+      "ACC_00112",
+      "ACC_00114",
+      "ACC_01015"
+    ],
+    "avg_member_risk_score": 0.8263,
+    "max_member_risk_score": 0.9993,
+    "min_member_risk_score": 0.0013,
+    "member_scores": {
+      "ACC_00111": 0.9669,
+      "ACC_01015": 0.0013,
+      "ACC_00110": 0.9993,
+      "ACC_00112": 0.995,
+      "ACC_00109": 0.9974,
+      "ACC_00114": 0.9981
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "device_id": 15,
+      "shipping_address_hash": 10
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 5,
+    "_eval_only_precision_of_this_cluster": 0.833
+  },
+  {
+    "candidate_ring_id": "RING_032",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00001",
+      "ACC_00003",
+      "ACC_00006"
+    ],
+    "avg_member_risk_score": 0.8059,
+    "max_member_risk_score": 0.9707,
+    "min_member_risk_score": 0.4858,
+    "member_scores": {
+      "ACC_00006": 0.9611,
+      "ACC_00001": 0.4858,
+      "ACC_00003": 0.9707
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "device_id": 3,
+      "payment_instrument": 3
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 3,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_017",
+    "member_count": 4,
+    "member_accounts": [
+      "ACC_00081",
+      "ACC_00082",
+      "ACC_00083",
+      "ACC_03124"
+    ],
+    "avg_member_risk_score": 0.7576,
+    "max_member_risk_score": 0.9995,
+    "min_member_risk_score": 0.0518,
+    "member_scores": {
+      "ACC_00082": 0.9995,
+      "ACC_00081": 0.9981,
+      "ACC_00083": 0.9812,
+      "ACC_03124": 0.0518
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "shipping_address_hash": 6,
+      "ip_subnet": 3
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 3,
+    "_eval_only_precision_of_this_cluster": 0.75
+  },
+  {
+    "candidate_ring_id": "RING_018",
+    "member_count": 4,
+    "member_accounts": [
+      "ACC_00081",
+      "ACC_00082",
+      "ACC_00083",
+      "ACC_03387"
+    ],
+    "avg_member_risk_score": 0.7448,
+    "max_member_risk_score": 0.9995,
+    "min_member_risk_score": 0.0002,
+    "member_scores": {
+      "ACC_00082": 0.9995,
+      "ACC_00081": 0.9981,
+      "ACC_00083": 0.9812,
+      "ACC_03387": 0.0002
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "ip_subnet": 6,
+      "shipping_address_hash": 3
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 3,
+    "_eval_only_precision_of_this_cluster": 0.75
+  },
+  {
+    "candidate_ring_id": "RING_034",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00024",
+      "ACC_00025",
+      "ACC_00366"
+    ],
+    "avg_member_risk_score": 0.667,
+    "max_member_risk_score": 1.0,
+    "min_member_risk_score": 0.0012,
+    "member_scores": {
+      "ACC_00025": 1.0,
+      "ACC_00366": 0.0012,
+      "ACC_00024": 0.9998
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "device_id": 3,
+      "payment_instrument": 1
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 2,
+    "_eval_only_precision_of_this_cluster": 0.667
+  },
+  {
+    "candidate_ring_id": "RING_027",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00034",
+      "ACC_00035",
+      "ACC_00037"
+    ],
+    "avg_member_risk_score": 0.6401,
+    "max_member_risk_score": 0.9695,
+    "min_member_risk_score": 0.0068,
+    "member_scores": {
+      "ACC_00034": 0.9695,
+      "ACC_00037": 0.0068,
+      "ACC_00035": 0.9441
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "device_id": 3
+    },
+    "recommendation": "HIGH PRIORITY: escalate full cluster to fraud review",
+    "_eval_only_actual_ring_members": 3,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_009",
+    "member_count": 6,
+    "member_accounts": [
+      "ACC_00119",
+      "ACC_00120",
+      "ACC_00121",
+      "ACC_00226",
+      "ACC_00227",
+      "ACC_00228"
+    ],
+    "avg_member_risk_score": 0.5115,
+    "max_member_risk_score": 0.9993,
+    "min_member_risk_score": 0.0141,
+    "member_scores": {
+      "ACC_00120": 0.9993,
+      "ACC_00227": 0.0181,
+      "ACC_00226": 0.0141,
+      "ACC_00121": 0.9872,
+      "ACC_00228": 0.051,
+      "ACC_00119": 0.9991
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "device_id": 15
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 3,
+    "_eval_only_precision_of_this_cluster": 0.5
+  },
+  {
+    "candidate_ring_id": "RING_024",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00101",
+      "ACC_00898",
+      "ACC_00986"
+    ],
+    "avg_member_risk_score": 0.3948,
+    "max_member_risk_score": 0.9944,
+    "min_member_risk_score": 0.0023,
+    "member_scores": {
+      "ACC_00898": 0.0023,
+      "ACC_00986": 0.1877,
+      "ACC_00101": 0.9944
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "ip_subnet": 3
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 1,
+    "_eval_only_precision_of_this_cluster": 0.333
+  },
+  {
+    "candidate_ring_id": "RING_035",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00105",
+      "ACC_00106",
+      "ACC_00107"
+    ],
+    "avg_member_risk_score": 0.3628,
+    "max_member_risk_score": 0.9781,
+    "min_member_risk_score": 0.0285,
+    "member_scores": {
+      "ACC_00106": 0.9781,
+      "ACC_00105": 0.082,
+      "ACC_00107": 0.0285
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "shipping_address_hash": 3
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 3,
+    "_eval_only_precision_of_this_cluster": 1.0
+  },
+  {
+    "candidate_ring_id": "RING_033",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00070",
+      "ACC_03054",
+      "ACC_04577"
+    ],
+    "avg_member_risk_score": 0.3493,
+    "max_member_risk_score": 0.9983,
+    "min_member_risk_score": 0.0014,
+    "member_scores": {
+      "ACC_00070": 0.9983,
+      "ACC_04577": 0.0483,
+      "ACC_03054": 0.0014
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "device_id": 3
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 1,
+    "_eval_only_precision_of_this_cluster": 0.333
+  },
+  {
+    "candidate_ring_id": "RING_022",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00168",
+      "ACC_00169",
+      "ACC_00170"
+    ],
+    "avg_member_risk_score": 0.3388,
+    "max_member_risk_score": 0.966,
+    "min_member_risk_score": 0.0011,
+    "member_scores": {
+      "ACC_00168": 0.966,
+      "ACC_00170": 0.0493,
+      "ACC_00169": 0.0011
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "shipping_address_hash": 3
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 0,
+    "_eval_only_precision_of_this_cluster": 0.0
+  },
+  {
+    "candidate_ring_id": "RING_019",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00026",
+      "ACC_04627",
+      "ACC_04669"
+    ],
+    "avg_member_risk_score": 0.3337,
+    "max_member_risk_score": 0.9991,
+    "min_member_risk_score": 0.0003,
+    "member_scores": {
+      "ACC_00026": 0.9991,
+      "ACC_04669": 0.0003,
+      "ACC_04627": 0.0017
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "shipping_address_hash": 3
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 1,
+    "_eval_only_precision_of_this_cluster": 0.333
+  },
+  {
+    "candidate_ring_id": "RING_026",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00082",
+      "ACC_02110",
+      "ACC_03772"
+    ],
+    "avg_member_risk_score": 0.3334,
+    "max_member_risk_score": 0.9995,
+    "min_member_risk_score": 0.0003,
+    "member_scores": {
+      "ACC_00082": 0.9995,
+      "ACC_03772": 0.0003,
+      "ACC_02110": 0.0005
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "device_id": 3
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 1,
+    "_eval_only_precision_of_this_cluster": 0.333
+  },
+  {
+    "candidate_ring_id": "RING_029",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00022",
+      "ACC_00475",
+      "ACC_04780"
+    ],
+    "avg_member_risk_score": 0.3333,
+    "max_member_risk_score": 0.9997,
+    "min_member_risk_score": 0.0,
+    "member_scores": {
+      "ACC_00022": 0.9997,
+      "ACC_04780": 0.0001,
+      "ACC_00475": 0.0
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "ip_subnet": 3
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 1,
+    "_eval_only_precision_of_this_cluster": 0.333
+  },
+  {
+    "candidate_ring_id": "RING_030",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00084",
+      "ACC_02415",
+      "ACC_04543"
+    ],
+    "avg_member_risk_score": 0.333,
+    "max_member_risk_score": 0.997,
+    "min_member_risk_score": 0.0004,
+    "member_scores": {
+      "ACC_04543": 0.0015,
+      "ACC_00084": 0.997,
+      "ACC_02415": 0.0004
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "device_id": 3
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 1,
+    "_eval_only_precision_of_this_cluster": 0.333
+  },
+  {
+    "candidate_ring_id": "RING_021",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00103",
+      "ACC_00910",
+      "ACC_04990"
+    ],
+    "avg_member_risk_score": 0.3319,
+    "max_member_risk_score": 0.9949,
+    "min_member_risk_score": 0.0002,
+    "member_scores": {
+      "ACC_00103": 0.9949,
+      "ACC_04990": 0.0005,
+      "ACC_00910": 0.0002
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "device_id": 3
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 1,
+    "_eval_only_precision_of_this_cluster": 0.333
+  },
+  {
+    "candidate_ring_id": "RING_031",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00097",
+      "ACC_00954",
+      "ACC_03608"
+    ],
+    "avg_member_risk_score": 0.3315,
+    "max_member_risk_score": 0.9879,
+    "min_member_risk_score": 0.0028,
+    "member_scores": {
+      "ACC_00954": 0.0028,
+      "ACC_03608": 0.0037,
+      "ACC_00097": 0.9879
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "ip_subnet": 3
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 1,
+    "_eval_only_precision_of_this_cluster": 0.333
+  },
+  {
+    "candidate_ring_id": "RING_023",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00015",
+      "ACC_00802",
+      "ACC_02336"
+    ],
+    "avg_member_risk_score": 0.3291,
+    "max_member_risk_score": 0.9857,
+    "min_member_risk_score": 0.0004,
+    "member_scores": {
+      "ACC_02336": 0.0012,
+      "ACC_00015": 0.9857,
+      "ACC_00802": 0.0004
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "shipping_address_hash": 3
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 1,
+    "_eval_only_precision_of_this_cluster": 0.333
+  },
+  {
+    "candidate_ring_id": "RING_020",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00321",
+      "ACC_01201",
+      "ACC_02036"
+    ],
+    "avg_member_risk_score": 0.3186,
+    "max_member_risk_score": 0.9341,
+    "min_member_risk_score": 0.0087,
+    "member_scores": {
+      "ACC_02036": 0.0087,
+      "ACC_00321": 0.9341,
+      "ACC_01201": 0.013
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "shipping_address_hash": 3
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 0,
+    "_eval_only_precision_of_this_cluster": 0.0
+  },
+  {
+    "candidate_ring_id": "RING_025",
+    "member_count": 3,
+    "member_accounts": [
+      "ACC_00207",
+      "ACC_03661",
+      "ACC_03854"
+    ],
+    "avg_member_risk_score": 0.3066,
+    "max_member_risk_score": 0.9007,
+    "min_member_risk_score": 0.0005,
+    "member_scores": {
+      "ACC_03854": 0.0186,
+      "ACC_00207": 0.9007,
+      "ACC_03661": 0.0005
+    },
+    "internal_edge_density": 1.0,
+    "shared_attribute_evidence": {
+      "ip_subnet": 3
+    },
+    "recommendation": "MEDIUM PRIORITY: queue cluster for manual review",
+    "_eval_only_actual_ring_members": 0,
+    "_eval_only_precision_of_this_cluster": 0.0
+  }
+]

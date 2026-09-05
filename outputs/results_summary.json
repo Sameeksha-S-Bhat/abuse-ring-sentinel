@@ -1,0 +1,83 @@
+{
+  "methodology_note": "Threshold selected ONLY on the validation set (20% of data). Test set (20% of data) evaluated exactly once, after the threshold was already frozen, to avoid test-set leakage.",
+  "split_sizes": {
+    "train": 3000,
+    "validation": 1000,
+    "test": 1000,
+    "train_ring_count": 90,
+    "validation_ring_count": 30,
+    "test_ring_count": 30
+  },
+  "logistic_regression_baseline_test": {
+    "name": "Logistic Regression (baseline, threshold=0.5, TEST set)",
+    "threshold": 0.5,
+    "precision": 0.18803418803418803,
+    "recall": 0.7333333333333333,
+    "f1": 0.29931972789115646,
+    "roc_auc": 0.9279725085910653,
+    "pr_auc": 0.6291512243829963,
+    "tn": 875,
+    "fp": 95,
+    "fn": 8,
+    "tp": 22,
+    "total_cost": 436000
+  },
+  "gbt_default_threshold_validation": {
+    "name": "Gradient Boosted Trees (default threshold=0.5, VALIDATION set)",
+    "threshold": 0.5,
+    "precision": 0.7307692307692307,
+    "recall": 0.6333333333333333,
+    "f1": 0.6785714285714286,
+    "roc_auc": 0.9484879725085911,
+    "pr_auc": 0.7035909099652247,
+    "tn": 963,
+    "fp": 7,
+    "fn": 11,
+    "tp": 19,
+    "total_cost": 500600
+  },
+  "gbt_default_threshold_test_reference": {
+    "name": "Gradient Boosted Trees (default threshold=0.5, TEST set, for reference)",
+    "threshold": 0.5,
+    "precision": 0.6129032258064516,
+    "recall": 0.6333333333333333,
+    "f1": 0.6229508196721312,
+    "roc_auc": 0.930893470790378,
+    "pr_auc": 0.6425067592095767,
+    "tn": 958,
+    "fp": 12,
+    "fn": 11,
+    "tp": 19,
+    "total_cost": 504600
+  },
+  "gbt_FINAL_headline_result_test_set": {
+    "name": "Gradient Boosted Trees (VALIDATION-CHOSEN threshold, evaluated ONCE on held-out TEST set) <-- THIS IS THE HEADLINE RESULT",
+    "threshold": 0.14,
+    "precision": 0.3225806451612903,
+    "recall": 0.6666666666666666,
+    "f1": 0.43478260869565216,
+    "roc_auc": 0.930893470790378,
+    "pr_auc": 0.6425067592095767,
+    "tn": 928,
+    "fp": 42,
+    "fn": 10,
+    "tp": 20,
+    "total_cost": 483600
+  },
+  "chosen_threshold": 0.14,
+  "cost_assumptions": {
+    "cost_false_negative_inr": 45000,
+    "cost_false_positive_inr": 800,
+    "note": "These are illustrative simulation assumptions for demonstrating cost-sensitive decisioning, not figures derived from real Razorpay data."
+  },
+  "feature_columns": [
+    "account_age_days",
+    "txn_velocity_per_day",
+    "avg_txn_amount",
+    "amount_std",
+    "graph_degree",
+    "clustering_coeff",
+    "community_size",
+    "n_distinct_shared_attr_types"
+  ]
+}

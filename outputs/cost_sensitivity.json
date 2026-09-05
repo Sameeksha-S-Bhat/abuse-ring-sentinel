@@ -1,0 +1,50 @@
+[
+  {
+    "label": "Low stakes (FN barely worse than FP, 1.5x)",
+    "fn_cost": 1200,
+    "fp_cost": 800,
+    "optimal_threshold": 0.8300000000000001,
+    "simulated_cost": 16000,
+    "precision": 0.9,
+    "recall": 0.6,
+    "fp": 2,
+    "fn": 12,
+    "tp": 18
+  },
+  {
+    "label": "Conservative (10x)",
+    "fn_cost": 8000,
+    "fp_cost": 800,
+    "optimal_threshold": 0.47000000000000003,
+    "simulated_cost": 86400,
+    "precision": 0.714,
+    "recall": 0.667,
+    "fp": 8,
+    "fn": 10,
+    "tp": 20
+  },
+  {
+    "label": "Base case (56x, used elsewhere in this project)",
+    "fn_cost": 45000,
+    "fp_cost": 800,
+    "optimal_threshold": 0.14,
+    "simulated_cost": 435400,
+    "precision": 0.356,
+    "recall": 0.7,
+    "fp": 38,
+    "fn": 9,
+    "tp": 21
+  },
+  {
+    "label": "Aggressive (150x)",
+    "fn_cost": 120000,
+    "fp_cost": 800,
+    "optimal_threshold": 0.14,
+    "simulated_cost": 1110400,
+    "precision": 0.356,
+    "recall": 0.7,
+    "fp": 38,
+    "fn": 9,
+    "tp": 21
+  }
+]

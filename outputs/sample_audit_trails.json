@@ -1,0 +1,101 @@
+[
+  {
+    "account_id": "ACC_00106",
+    "risk_score": 0.9781,
+    "flagged": true,
+    "threshold_used": 0.14,
+    "ground_truth_is_ring": true,
+    "top_contributing_factors": [
+      {
+        "feature": "txn_velocity_per_day",
+        "value": 3.405,
+        "shap_contribution": 4.2659,
+        "effect": "increased risk score"
+      },
+      {
+        "feature": "account_age_days",
+        "value": 1.0,
+        "shap_contribution": 3.6337,
+        "effect": "increased risk score"
+      },
+      {
+        "feature": "amount_std",
+        "value": 32.024,
+        "shap_contribution": 1.202,
+        "effect": "increased risk score"
+      },
+      {
+        "feature": "clustering_coeff",
+        "value": 0.333,
+        "shap_contribution": 1.1469,
+        "effect": "increased risk score"
+      }
+    ]
+  },
+  {
+    "account_id": "ACC_00168",
+    "risk_score": 0.966,
+    "flagged": true,
+    "threshold_used": 0.14,
+    "ground_truth_is_ring": false,
+    "top_contributing_factors": [
+      {
+        "feature": "txn_velocity_per_day",
+        "value": 3.794,
+        "shap_contribution": 4.5554,
+        "effect": "increased risk score"
+      },
+      {
+        "feature": "account_age_days",
+        "value": 1.0,
+        "shap_contribution": 2.3231,
+        "effect": "increased risk score"
+      },
+      {
+        "feature": "amount_std",
+        "value": 154.087,
+        "shap_contribution": 1.5289,
+        "effect": "increased risk score"
+      },
+      {
+        "feature": "clustering_coeff",
+        "value": 0.333,
+        "shap_contribution": 0.859,
+        "effect": "increased risk score"
+      }
+    ]
+  },
+  {
+    "account_id": "ACC_00122",
+    "risk_score": 0.0379,
+    "flagged": false,
+    "threshold_used": 0.14,
+    "ground_truth_is_ring": true,
+    "top_contributing_factors": [
+      {
+        "feature": "account_age_days",
+        "value": 187.0,
+        "shap_contribution": 1.9548,
+        "effect": "increased risk score"
+      },
+      {
+        "feature": "clustering_coeff",
+        "value": 1.0,
+        "shap_contribution": 1.7611,
+        "effect": "increased risk score"
+      },
+      {
+        "feature": "amount_std",
+        "value": 209.952,
+        "shap_contribution": 1.1597,
+        "effect": "increased risk score"
+      },
+      {
+        "feature": "community_size",
+        "value": 21.0,
+        "shap_contribution": -0.4518,
+        "effect": "decreased risk score"
+      }
+    ]
+  }
+]
